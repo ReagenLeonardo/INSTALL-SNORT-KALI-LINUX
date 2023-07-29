@@ -1,0 +1,47 @@
+INSTALL SNORT ON KALI LINUX
+
+
+MAKE A BACKUP OF CURRENT SOURCES.LIST FILE ::
+
+mv /etc/apt/sources.list /etc/apt/sources.list.bak
+
+------------------------------------------------------------------------------------------------
+
+Remove currently installed Kali Updates ::
+
+find /var/lib/apt/lists -type f -exec rm {} \;
+
+------------------------------------------------------------------------------------------------
+
+DOWNLOAD UBUNTU SOURCES.LIST FILE ::
+
+wget https://gist.githubusercontent.com/ishad0w/788555191c7037e249a439542c53e170/raw/3822ba49241e6fd851ca1c1cbcc4d7e87382f484/sources.list -O /etc/apt/sources.list
+
+------------------------------------------------------------------------------------------------
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+
+sudo apt update
+
+------------------------------------------------------------------------------------------------
+
+INSTALL SNORT ::
+
+sudo apt install snort
+
+
+------------------------------------------------------------------------------------------------
+
+RESTORING KALI’S REPOSITORY SOURCES.LIST FILE ::
+
+find /var/lib/apt/lists -type f -exec rm {} \;
+
+mv /etc/apt/sources.list /etc/apt/ubuntu_sources.list
+
+mv /etc/apt/sources.list.bak /etc/apt/sources.list
+
+------------------------------------------------------------------------------------------------
+
+sudo apt update && sudo apt upgrade
